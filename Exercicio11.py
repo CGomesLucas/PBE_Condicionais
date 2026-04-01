@@ -1,0 +1,1 @@
+print("I´m gonna do this after. It looks very hard for me and i dont wanna break my brain in that shit")
