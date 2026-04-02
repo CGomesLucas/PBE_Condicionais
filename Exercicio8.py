@@ -1,23 +1,17 @@
-valor = float(input("Insira o valor que você deseja sacar:"))
-
+valor_saque = int(input("Insira o valor que você deseja sacar:"))
+valor_restante = valor_saque
 notas_disponiveis = [100, 50, 20, 10, 5, 2]
+resultado = {}
 
-valor_devolvido = []
+for nota in notas_disponiveis:
+    quantidade_notas = valor_restante // nota
+    resultado[nota] = int(quantidade_notas)
+    valor_restante -= quantidade_notas * nota
 
-if valor == 1 or valor == 3:
-    print("Esse valor é impossível de ser sacado")
+if valor_restante > 0:
+    print("Valor impossível de sacar com as notas disponíveis")
+    print(f"Resto R$ {valor_restante:.2f}")
 else:
-
-    for x in notas_disponiveis:
-        valores = valor / x
-        valor_devolvido.append(valores)
-        valor -= valores * x
-
-        for y in range (len(notas_disponiveis)):
-            print(f"{notas_disponiveis[y]}: {valor_devolvido[y]}")
-
-        print(f"O resto é: {valor}")
-
-
-
-
+    for nota, qtd in resultado.items():
+        if qtd > 0:
+            print(f"Notas de R$ {nota}: {qtd}")
